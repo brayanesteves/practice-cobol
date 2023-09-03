@@ -1,0 +1,13 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. EditingCharacters.
+       DATA DIVISION.
+       FILE SECTION.
+       WORKING-STORAGE SECTION.
+
+       01  NUM1 PIC 9999.99 VALUE 5000.75.
+
+       PROCEDURE DIVISION.
+       MAIN-PROCEDURE.
+           DISPLAY NUM1.
+           STOP RUN.
+       END PROGRAM EditingCharacters.
