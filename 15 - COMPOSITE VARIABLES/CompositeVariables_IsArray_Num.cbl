@@ -13,7 +13,7 @@
 
        PROCEDURE DIVISION.
        MAIN-PROCEDURE.
-           DISPLAY NUM3.
-           DISPLAY COMPOSITE-VARIABLE-ISARRAY.
+           DISPLAY "Show variable of 'COMPOSITE-VARIABLE-ISARRAY': " NUM3.
+           DISPLAY "Show values of variables of 'COMPOSITE-VARIABLE-ISARRAY': " COMPOSITE-VARIABLE-ISARRAY.
             STOP RUN.
        END PROGRAM CompositeVariablesIsArrayNum.
