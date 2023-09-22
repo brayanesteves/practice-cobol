@@ -1,0 +1,85 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. LogicalAndPhysicalFilesDatabasesIV.
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+
+       FILE CONTROL.
+       SELECT OPTIONAL FILE-EMPLOYEES.
+       ASSIGN TO "employees.dat"
+       ORGANIZATION IS SEQUENTIAL.
+
+       DATA DIVISION.
+       FILE SECTION.
+       FD FILE-EMPLOYEES.
+           01 REGISTER-EMPLOYEES.
+               05 EMPLOYEES-ID        PIC X(6).
+               05 EMPLOYEES-NAME      PIC X(25).
+               05 EMPLOYEES-LASTNAMES PIC X(35).
+               05 EMPLOYEES-AGE       PIC X(3).
+               05 EMPLOYEES-TELEPHONE PIC X(9).
+               05 EMPLOYEES-DIRECTION PIC X(35).
+
+       WORKING-STORAGE SECTION.
+       01 PRESENTATION.
+           05 TEXT-ID PIC X(3) VALUE "ID:".
+           05 SAMPLE-ID PIC X(6).
+           05 TEXT-NAME PIC X(5) VALUE "Name:".
+           05 SAMPLE-NAME PIC X(15).
+           05 TEXT-LASTNAMES PIC X(10) VALUE "Lastnames:".
+           05 SAMPLE-LASTNAMES PIC X(20).
+           05 TEXT-AGE PIC X(4) VALUE "Age:".
+           05 SAMPLE-AGE PIC X(3).
+           05 TEXT-TELEPHONE PIC X(10) VALUE "Telephone:".
+           05 SAMPLE-TELEPHONE PIC X(10).
+           05 TEXT-ADDRESS PIC X(8) VALUE "Address:".
+           05 SAMPLE-ADDRESS PIC X(35).
+
+           01 END-OF-FILE.
+           01 MAXIMUM-LOG.
+           01 SAVE-ENTER.
+           PROCEDURE DIVISION.
+
+           BEGIN-PROGRAM.
+           PERFORM OPENING-FILE.
+           MOVE ZEROES TO MAXIMUM-LOG.
+           MOVE "1" TO END-OF-FILE.
+           PERFORM READ-NEXT-RECORD.
+           PERFORM SAMPLE-LOGS
+           UNTIL END-OF-FILE = "0".
+           PERFORM CLOSING-FILE.
+           PROGRAM-DONE.
+           STOP RUN.
+
+           OPENING-FILE.
+           OPEN INPUT FILE-EMPLOYEES.
+
+           CLOSING-FILE.
+           CLOSE FILE-EMPLOYEES.
+
+           SAMPLE-LOGS.
+           PERFORM SAMPLE-FIELDS.
+           PERFORM READ-NEXT-RECORD.
+
+           SAMPLE-FIELDS.
+           IF MAXIMUM-LOGS = 10
+           PERFORM PRESS-ENTER.
+           MOVE EMPLOYEES-ID TO SAMPLE-ID.
+           MOVE EMPLOYEES-NAME TO SAMPLE-NAME.
+           MOVE EMPLOYEES-LASTNAMES TO SAMPLE-LASTNAMES.
+           MOVE EMPLOYEES-AGE TO SAMPLE-AGE.
+           MOVE EMPLOYEES-TELEPHONE TO SAMPLE-TELEPHONE.
+           MOVE EMPLOYEES-DIRECTION TO SAMPLE-ADDRESS.
+           DISPLAY PRESENTATION.
+           ADD 1 TO MAXIMUM-LOGS.
+
+           READ-NEXT-RECORD.
+           READ FILE-EMPLOYEES NEXT RECORD
+           AT END
+           MOVE "0" TO END-OF-FILE.
+
+           PRESS-ENTER.
+           DISPLAY "Press the ENTER key to view the next page...".
+           ACCEPT SAVE-ENTER.
+           MOVE ZEROES TO MAXIMUM-LOGS.
+
+       END PROGRAM LogicalAndPhysicalFilesDatabasesIV.
