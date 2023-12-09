@@ -1,5 +1,5 @@
        IDENTIFICATION DIVISION.
-       PROGRAM-ID. CreateAndReadIndexedFilesDatabasesV.
+       PROGRAM-ID. CreateAndReadIndexedFilesDatabasesV_AddData.
        ENVIRONMENT DIVISION.
        INPUT-OUTPUT SECTION.
       *Dynamic physical file.
@@ -96,4 +96,4 @@
        IF YES-NO NOT = "Y"
        MOVE "N" TO YES-NO.
        
-       END PROGRAM CreateAndReadIndexedFilesDatabasesV.
+       END PROGRAM CreateAndReadIndexedFilesDatabasesV_AddData.
