@@ -34,5 +34,10 @@
            DISPLAY "The condition ('OR'), ('NOT' and 'OR') and 'AND' is fulfilled."
       END-IF
 
+      *> Without parentheses.
+      IF Number1 > 9 OR < 5 AND Number1 NOT = 15 OR > 15 AND Number2 = 10 THEN
+           DISPLAY "The condition 'OR', 'NOT', 'OR' and 'AND' is fulfilled."
+      END-IF
+
       STOP RUN.
       END PROGRAM LogicalOperatorsAND-ORandNOT.
