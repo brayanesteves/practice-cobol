@@ -1,0 +1,24 @@
+      IDENTIFICATION DIVISION.
+      PROGRAM-ID. PERFORM-VARYING.
+
+      ENVIRONMENT DIVISION.
+      CONFIGURATION SECTION.
+      DATA DIVISION.
+      FILE SECTION.
+      WORKING-STORAGE SECTION.
+      77   Numbers PIC 999 VALUE 10.
+
+      PROCEDURE DIVISION.
+
+      Begin.
+     *> PERFORM Operation VARYING Numbers FROM 15 BY 1 UNTIL Numbers > 25.
+     *> PERFORM Operation VARYING Numbers FROM 15 BY 10 UNTIL Numbers > 250.
+      PERFORM Operation
+      VARYING Numbers FROM 15 BY 10
+      UNTIL Numbers > 250.
+      STOP RUN.
+
+      Operation.
+      DISPLAY Numbers.
+
+      END PROGRAM PERFORM-VARYING.
