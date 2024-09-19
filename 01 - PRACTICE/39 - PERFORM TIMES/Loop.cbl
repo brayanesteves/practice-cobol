@@ -1,0 +1,16 @@
+      IDENTIFICATION DIVISION.
+      PROGRAM-ID. Loop.
+
+      ENVIRONMENT DIVISION.
+      CONFIGURATION SECTION.
+      DATA DIVISION.
+      FILE SECTION.
+      WORKING-STORAGE SECTION. 
+
+      PROCEDURE DIVISION.
+      Loop.
+           PERFORM 5 TIMES.
+               DISPLAY "I repeat myself!"
+           END-PERFORM.
+
+      END PROGRAM Loop.
